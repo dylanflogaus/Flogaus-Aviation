@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        VITE_CAL_LINK: ${VITE_CAL_LINK}
+    ports:
+      - "8080:80"
+    restart: unless-stopped
