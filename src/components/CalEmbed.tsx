@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 function buildEmbedUrl(calLink: string): string {
   const trimmed = calLink.trim();
   const base = trimmed.startsWith("http")
@@ -7,8 +9,51 @@ function buildEmbedUrl(calLink: string): string {
   return `${base}${hasQuery ? "&" : "?"}embed=true`;
 }
 
+const MOBILE_MEDIA = "(max-width: 767px)";
+
+/** Height Cal.com sends for the embedded document; keep in sync with their embed iframe messaging. */
+function calDimensionHeight(payload: unknown): number | null {
+  if (typeof payload !== "object" || payload === null) return null;
+  const o = payload as Record<string, unknown>;
+  if (o.originator !== "CAL" || o.type !== "__dimensionChanged") return null;
+  const data = o.data;
+  if (typeof data !== "object" || data === null) return null;
+  const h = (data as Record<string, unknown>).iframeHeight;
+  if (typeof h !== "number" || !Number.isFinite(h) || h < 1) return null;
+  return Math.ceil(h);
+}
+
 export function CalEmbed() {
   const calLink = import.meta.env.VITE_CAL_LINK?.trim();
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isNarrow, setIsNarrow] = useState(false);
+  const [mobileHeightPx, setMobileHeightPx] = useState<number | null>(null);
+
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_MEDIA);
+    const apply = () => setIsNarrow(mql.matches);
+    apply();
+    mql.addEventListener("change", apply);
+    return () => mql.removeEventListener("change", apply);
+  }, []);
+
+  useEffect(() => {
+    if (!isNarrow) {
+      setMobileHeightPx(null);
+      return;
+    }
+
+    const onMessage = (event: MessageEvent) => {
+      if (event.source !== iframeRef.current?.contentWindow) return;
+      const h = calDimensionHeight(event.data);
+      if (h === null) return;
+      // Small buffer avoids 1px clipping from rounding/theme borders inside Cal.
+      setMobileHeightPx(h + 2);
+    };
+
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [isNarrow]);
 
   if (!calLink) {
     return (
@@ -31,10 +76,14 @@ export function CalEmbed() {
   return (
     <div className="cal-embed-wrap">
       <iframe
+        ref={iframeRef}
         title="Schedule with Flogaus Aviation — Cal.com"
         src={src}
         allow="payment *"
-        scrolling="no"
+        scrolling={isNarrow ? "no" : undefined}
+        style={
+          isNarrow && mobileHeightPx != null ? { height: `${mobileHeightPx}px` } : undefined
+        }
       />
     </div>
   );
