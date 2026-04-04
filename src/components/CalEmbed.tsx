@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
+function normalizeCalLink(raw: string): string {
+  // Cloud providers sometimes store quoted env values; strip wrapper quotes safely.
+  return raw.trim().replace(/^['"]+|['"]+$/g, "").trim();
+}
+
 function buildEmbedUrl(calLink: string): string {
-  const trimmed = calLink.trim();
+  const trimmed = normalizeCalLink(calLink);
   const base = trimmed.startsWith("http")
     ? trimmed.replace(/\/$/, "")
     : `https://cal.com/${trimmed.replace(/^\//, "")}`;
@@ -24,10 +29,56 @@ function calDimensionHeight(payload: unknown): number | null {
 }
 
 export function CalEmbed() {
-  const calLink = import.meta.env.VITE_CAL_LINK?.trim();
+  const rawCalLink = import.meta.env.VITE_CAL_LINK;
+  const calLink = normalizeCalLink(rawCalLink ?? "");
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isNarrow, setIsNarrow] = useState(false);
   const [mobileHeightPx, setMobileHeightPx] = useState<number | null>(null);
+
+  useEffect(() => {
+    // #region agent log
+    fetch("http://127.0.0.1:7935/ingest/1808c6c5-276e-416d-b32e-fdb6e1b4122d", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "0e7e4f" },
+      body: JSON.stringify({
+        sessionId: "0e7e4f",
+        runId: "pre-fix",
+        hypothesisId: "H3",
+        location: "src/components/CalEmbed.tsx:34",
+        message: "CalEmbed mounted",
+        data: {
+          pathname: window.location.pathname,
+          mode: import.meta.env.MODE,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
+  }, []);
+
+  useEffect(() => {
+    // #region agent log
+    fetch("http://127.0.0.1:7935/ingest/1808c6c5-276e-416d-b32e-fdb6e1b4122d", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "0e7e4f" },
+      body: JSON.stringify({
+        sessionId: "0e7e4f",
+        runId: "pre-fix",
+        hypothesisId: "H1_H2_H4",
+        location: "src/components/CalEmbed.tsx:54",
+        message: "Cal env snapshot",
+        data: {
+          hasRawCalLink: typeof rawCalLink === "string",
+          rawCalLinkLength: typeof rawCalLink === "string" ? rawCalLink.length : null,
+          normalizedCalLinkLength: calLink.length,
+          normalizedCalLinkPreview: calLink.slice(0, 120),
+          viteKeys: Object.keys(import.meta.env).filter((k) => k.startsWith("VITE_")),
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
+  }, [rawCalLink, calLink]);
 
   useEffect(() => {
     const mql = window.matchMedia(MOBILE_MEDIA);
@@ -55,6 +106,28 @@ export function CalEmbed() {
     return () => window.removeEventListener("message", onMessage);
   }, [isNarrow]);
 
+  useEffect(() => {
+    if (calLink) return;
+    // #region agent log
+    fetch("http://127.0.0.1:7935/ingest/1808c6c5-276e-416d-b32e-fdb6e1b4122d", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "0e7e4f" },
+      body: JSON.stringify({
+        sessionId: "0e7e4f",
+        runId: "pre-fix",
+        hypothesisId: "H1_H2",
+        location: "src/components/CalEmbed.tsx:93",
+        message: "Fallback branch active: missing calLink",
+        data: {
+          hasRawCalLink: typeof rawCalLink === "string",
+          normalizedCalLinkLength: calLink.length,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
+  }, [rawCalLink, calLink]);
+
   if (!calLink) {
     return (
       <div className="cal-placeholder card">
@@ -72,6 +145,27 @@ export function CalEmbed() {
   }
 
   const src = buildEmbedUrl(calLink);
+
+  useEffect(() => {
+    // #region agent log
+    fetch("http://127.0.0.1:7935/ingest/1808c6c5-276e-416d-b32e-fdb6e1b4122d", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "0e7e4f" },
+      body: JSON.stringify({
+        sessionId: "0e7e4f",
+        runId: "pre-fix",
+        hypothesisId: "H5",
+        location: "src/components/CalEmbed.tsx:124",
+        message: "Embed branch active: iframe src built",
+        data: {
+          srcPreview: src.slice(0, 160),
+          isNarrow,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion
+  }, [src, isNarrow]);
 
   return (
     <div className="cal-embed-wrap">
