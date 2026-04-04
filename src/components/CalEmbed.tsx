@@ -1,30 +1,16 @@
-import Cal from "@calcom/embed-react";
-
-const DEFAULT_CAL_ORIGIN = "https://cal.com";
-
-/** Map VITE_CAL_LINK (path or full URL) to props for the official Cal inline embed (handles height via postMessage). */
-function calPropsFromEnv(raw: string): { calLink: string; calOrigin?: string } {
-  const trimmed = raw.trim();
-  try {
-    if (/^https?:\/\//i.test(trimmed)) {
-      const url = new URL(trimmed);
-      const path = url.pathname.replace(/^\//, "").replace(/\/$/, "");
-      const calLink = path + url.search;
-      return { calLink, calOrigin: url.origin };
-    }
-  } catch {
-    // use path-style value below
-  }
-  return {
-    calLink: trimmed.replace(/^\//, ""),
-    calOrigin: DEFAULT_CAL_ORIGIN,
-  };
+function buildEmbedUrl(calLink: string): string {
+  const trimmed = calLink.trim();
+  const base = trimmed.startsWith("http")
+    ? trimmed.replace(/\/$/, "")
+    : `https://cal.com/${trimmed.replace(/^\//, "")}`;
+  const hasQuery = base.includes("?");
+  return `${base}${hasQuery ? "&" : "?"}embed=true`;
 }
 
 export function CalEmbed() {
-  const raw = import.meta.env.VITE_CAL_LINK?.trim();
+  const calLink = import.meta.env.VITE_CAL_LINK?.trim();
 
-  if (!raw) {
+  if (!calLink) {
     return (
       <div className="cal-placeholder card">
         <p>
@@ -40,20 +26,15 @@ export function CalEmbed() {
     );
   }
 
-  const { calLink, calOrigin } = calPropsFromEnv(raw);
+  const src = buildEmbedUrl(calLink);
 
   return (
-    <Cal
-      className="cal-embed-wrap"
-      calLink={calLink}
-      calOrigin={calOrigin}
-      config={{
-        theme: "dark",
-        iframeAttrs: {
-          title: "Schedule with Flogaus Aviation — Cal.com",
-          allow: "payment *",
-        },
-      }}
-    />
+    <div className="cal-embed-wrap">
+      <iframe
+        title="Schedule with Flogaus Aviation — Cal.com"
+        src={src}
+        allow="payment *"
+      />
+    </div>
   );
 }
