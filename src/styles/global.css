@@ -645,6 +645,16 @@ p:last-child {
   border: 0;
 }
 
+@media (max-width: 767px) {
+  .cal-embed-wrap {
+    min-height: 0;
+  }
+
+  .cal-embed-wrap iframe {
+    height: calc(100dvh - 1rem);
+  }
+}
+
 .cal-placeholder {
   padding: 3rem 1.5rem;
   text-align: center;

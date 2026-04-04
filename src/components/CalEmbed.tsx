@@ -34,6 +34,7 @@ export function CalEmbed() {
         title="Schedule with Flogaus Aviation — Cal.com"
         src={src}
         allow="payment *"
+        scrolling="no"
       />
     </div>
   );
