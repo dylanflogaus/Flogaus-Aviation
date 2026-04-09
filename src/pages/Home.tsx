@@ -44,15 +44,14 @@ export function Home() {
             <article className="card">
               <h3>Certifications</h3>
               <p>
-                FAA Certified Flight Instructor (placeholder). Add your ratings — CFII, MEI, AGI, and any
-                other credentials your clients should see here.
+                FAA Certified Flight Instructor (CFI), Commercial Pilot License (CPL), and Instrument Rating (IR).
               </p>
             </article>
             <article className="card">
               <h3>Aircraft &amp; locations</h3>
               <p>
-                Training in Technically Advanced Aircraft (TAA) or your specified make/model (placeholder).
-                List home airport and satellite locations you serve.
+                Training in Technically Advanced Aircraft (TAA) or your specified make/model.
+                Training at New Garden Flying Field (N57) and surrounding airports.
               </p>
             </article>
             <article className="card">

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
 export function Contact() {
-  const email = "hello@flogausaviation.com";
-  const phone = "+1 (555) 555-0100";
-  const phoneRaw = "+15555550100";
+  const email = "info@flogausaviation.com";
+  const phone = "+1 (302) 379-5071";
+  const phoneRaw = "+13023795071";
 
   return (
     <>
@@ -11,8 +11,7 @@ export function Contact() {
         <div className="container">
           <h1 className="page-header__title">Contact</h1>
           <p className="page-header__lede">
-            Questions before you book? Reach out directly. For scheduling and payment, use the booking page —
-            it connects to Cal.com (and Stripe for paid sessions).
+            Questions before you book? Reach out directly. For scheduling and payment, use the booking page.
           </p>
         </div>
       </header>
@@ -30,7 +29,7 @@ export function Contact() {
             <li>
               <strong>Service area</strong>
               <span style={{ color: "var(--color-muted)" }}>
-                Based near Example County Regional (KXXX) — update with your real airport and travel radius.
+                Based near New Garden Flying Field (N57)
               </span>
             </li>
           </ul>

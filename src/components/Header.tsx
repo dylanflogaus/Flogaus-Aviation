@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useId, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
+import airplaneLogoUrl from "../../airplane.svg?url";
+
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `header__link${isActive ? " header__link--active" : ""}`;
 
@@ -43,7 +45,15 @@ export function Header() {
           end
           onClick={closeMenu}
         >
-          <span className="header__brand-mark" aria-hidden="true" />
+          <img
+            src={airplaneLogoUrl}
+            alt=""
+            className="header__brand-mark"
+            width={40}
+            height={40}
+            aria-hidden="true"
+            decoding="async"
+          />
           <span className="header__brand-text">Flogaus Aviation</span>
         </NavLink>
         <button

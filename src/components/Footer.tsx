@@ -30,10 +30,10 @@ export function Footer() {
           <p className="footer__title">Contact</p>
           <ul className="footer__list">
             <li>
-              <a href="mailto:hello@flogausaviation.com">hello@flogausaviation.com</a>
+              <a href="mailto:info@flogausaviation.com">info@flogausaviation.com</a>
             </li>
             <li>
-              <a href="tel:+15555550100">+1 (555) 555-0100</a>
+              <a href="tel:+13023795071">+1 (302) 379-5071</a>
             </li>
           </ul>
         </div>

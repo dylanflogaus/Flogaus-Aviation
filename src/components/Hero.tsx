@@ -11,7 +11,7 @@ export function Hero() {
           </h1>
           <p className="hero__lede">
             Private, instrument, and recurrent training tailored to your goals — from first solos to
-            checkout-ready proficiency. Calm coaching, exacting standards, and respect for your time.
+            checkride-ready proficiency. Calm coaching, exacting standards, and respect for your time.
           </p>
           <div className="hero__actions">
             <Link to="/booking" className="btn btn--primary">
