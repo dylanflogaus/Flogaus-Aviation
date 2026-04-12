@@ -36,11 +36,16 @@ You bring the motivation. I’ll bring the instruction, patience, and a safety-f
 
             </p>
           </div>
-          <aside className="about-photo" role="img" aria-label="Instructor portrait placeholder">
-            Add your
-            <br />
-            portrait here
-          </aside>
+          <figure className="about-photo">
+            <img
+              src="/instructor-portrait.jpeg"
+              alt="Flight instructor portrait"
+              width={560}
+              height={700}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
     </>
