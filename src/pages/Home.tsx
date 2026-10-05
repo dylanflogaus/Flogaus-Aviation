@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
+import { InstructorPortrait } from "../components/InstructorPortrait";
 import { INSTRUCTOR_CREDENTIALS } from "../config/credentials";
 import {
   FLIGHT_DUAL_INSTRUCTION_RATE,
@@ -50,14 +51,7 @@ export function Home() {
           <h2 id="trust-heading">Your instructor</h2>
           <div className="trust-grid">
             <figure className="about-photo trust-grid__photo">
-              <img
-                src="/instructor-portrait.jpeg"
-                alt="Flogaus Aviation flight instructor portrait"
-                width={560}
-                height={700}
-                loading="lazy"
-                decoding="async"
-              />
+              <InstructorPortrait />
             </figure>
             <div className="trust-grid__copy">
               <p>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { InstructorPortrait } from "../components/InstructorPortrait";
 import { INSTRUCTOR_CREDENTIALS } from "../config/credentials";
 import { SERVICE_AREA_PHRASE } from "../config/site";
 
@@ -53,14 +54,7 @@ export function About() {
             <p>You bring the motivation. I will bring the instruction, patience, and a safety-first mindset.</p>
           </div>
           <figure className="about-photo">
-            <img
-              src="/instructor-portrait.jpeg"
-              alt="Flogaus Aviation flight instructor portrait"
-              width={560}
-              height={700}
-              loading="lazy"
-              decoding="async"
-            />
+            <InstructorPortrait sizes="(min-width: 768px) 280px, min(100vw - 2.5rem, 560px)" />
           </figure>
         </div>
       </section>
