@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { Hero } from "../components/Hero";
 import { INSTRUCTOR_CREDENTIALS } from "../config/credentials";
 import {
-  FLIGHT_LESSON_RATE_PLACEHOLDER,
-  GROUND_LESSON_RATE_PLACEHOLDER,
+  FLIGHT_DUAL_INSTRUCTION_RATE,
+  GROUND_INSTRUCTION_RATE,
   SERVICE_AREA_PHRASE,
 } from "../config/site";
 
@@ -85,15 +85,14 @@ export function Home() {
       <hr className="gold-rule" />
       <section className="section section--tight" aria-labelledby="pricing-heading">
         <div className="container content-measure">
-          <h2 id="pricing-heading">Rates</h2>
+          <h2 id="pricing-heading">Instructor rates</h2>
           <p className="section__lede">
-            Aircraft rental is billed separately by the rental provider. Instruction rates below are placeholders
-            until Dylan confirms final numbers.
+            Instructor rates below. Aircraft rental is billed separately by the rental provider.
           </p>
-          <div className="pricing-table" role="table" aria-label="Instruction rates">
+          <div className="pricing-table" role="table" aria-label="Instructor rates">
             <div className="pricing-table__row pricing-table__row--head" role="row">
               <span role="columnheader">Service</span>
-              <span role="columnheader">Rate</span>
+              <span role="columnheader">Instructor rate</span>
             </div>
             <div className="pricing-table__row" role="row">
               <span role="cell">Intro Flight</span>
@@ -102,15 +101,15 @@ export function Home() {
               </span>
             </div>
             <div className="pricing-table__row" role="row">
-              <span role="cell">Flight instruction</span>
+              <span role="cell">Flight (dual) instruction</span>
               <span role="cell">
-                <strong>{FLIGHT_LESSON_RATE_PLACEHOLDER}</strong>
+                <strong>{FLIGHT_DUAL_INSTRUCTION_RATE}</strong>
               </span>
             </div>
             <div className="pricing-table__row" role="row">
               <span role="cell">Ground instruction</span>
               <span role="cell">
-                <strong>{GROUND_LESSON_RATE_PLACEHOLDER}</strong>
+                <strong>{GROUND_INSTRUCTION_RATE}</strong>
               </span>
             </div>
           </div>

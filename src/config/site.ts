@@ -22,5 +22,5 @@ export const SEO_LOCATION_DESCRIPTION = `near ${HOME_AIRPORT_NAME}, serving the 
 
 export const INTRO_FLIGHT_CAL_PATH = "dflogaus/intro-flight";
 
-export const FLIGHT_LESSON_RATE_PLACEHOLDER = "[$__/hr]";
-export const GROUND_LESSON_RATE_PLACEHOLDER = "[$__/hr]";
+export const FLIGHT_DUAL_INSTRUCTION_RATE = "$70/hr";
+export const GROUND_INSTRUCTION_RATE = "$60/hr";
