@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useId, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
-import airplaneLogoUrl from "../../airplane.svg?url";
-
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `header__link${isActive ? " header__link--active" : ""}`;
 
@@ -39,14 +37,9 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container header__inner">
-        <NavLink
-          to="/"
-          className="header__brand"
-          end
-          onClick={closeMenu}
-        >
+        <NavLink to="/" className="header__brand" end onClick={closeMenu}>
           <img
-            src={airplaneLogoUrl}
+            src="/airplane.svg"
             alt=""
             className="header__brand-mark"
             width={40}
@@ -96,13 +89,18 @@ export function Header() {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/flight-instruction-n57" className={navLinkClass}>
+                Flight instruction
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/contact" className={navLinkClass}>
                 Contact
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/booking"
+                to="/booking?event=intro-flight"
                 className={({ isActive }) =>
                   `${navLinkClass({ isActive })} header__cta`.trim()
                 }

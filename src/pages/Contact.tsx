@@ -1,17 +1,15 @@
 import { Link } from "react-router-dom";
+import { HOME_AIRPORT_TBD, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY } from "../config/site";
 
 export function Contact() {
-  const email = "info@flogausaviation.com";
-  const phone = "+1 (302) 379-5071";
-  const phoneRaw = "+13023795071";
-
   return (
     <>
       <header className="page-header">
         <div className="container">
           <h1 className="page-header__title">Contact</h1>
           <p className="page-header__lede">
-            Questions before you book? Reach out directly. For scheduling and payment, use the booking page.
+            Questions before you book? Reach out directly. For scheduling, use the booking page — Intro Flights are
+            free.
           </p>
         </div>
       </header>
@@ -20,21 +18,22 @@ export function Contact() {
           <ul className="contact-list">
             <li>
               <strong>Email</strong>
-              <a href={`mailto:${email}`}>{email}</a>
+              <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
             </li>
             <li>
               <strong>Phone</strong>
-              <a href={`tel:${phoneRaw}`}>{phone}</a>
+              <a href={`tel:${SITE_PHONE}`}>{SITE_PHONE_DISPLAY}</a>
             </li>
             <li>
               <strong>Service area</strong>
               <span style={{ color: "var(--color-muted)" }}>
-                Based near New Garden Flying Field (N57)
+                Wilmington, DE area near {HOME_AIRPORT_TBD}
               </span>
             </li>
           </ul>
-          <p style={{ marginTop: "2rem" }}>
-            Prefer to book immediately? <Link to="/booking">Go to scheduling</Link>.
+          <p className="contact__next-step">
+            Prefer to book immediately?{" "}
+            <Link to="/booking?event=intro-flight">Book a free Intro Flight</Link>.
           </p>
         </div>
       </section>
