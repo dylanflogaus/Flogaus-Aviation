@@ -21,6 +21,8 @@ export const SEO_LOCATION_TITLE = `near ${HOME_AIRPORT_NAME} · Wilmington, DE`;
 export const SEO_LOCATION_DESCRIPTION = `near ${HOME_AIRPORT_NAME}, serving the Wilmington, DE area`;
 
 export const INTRO_FLIGHT_CAL_PATH = "dflogaus/intro-flight";
+export const FLIGHT_LESSON_CAL_PATH = "dflogaus/flight-lesson";
+export const GROUND_LESSON_CAL_PATH = "dflogaus/ground-lesson";
 
 export const FLIGHT_DUAL_INSTRUCTION_RATE = "$70/hr";
 export const GROUND_INSTRUCTION_RATE = "$60/hr";

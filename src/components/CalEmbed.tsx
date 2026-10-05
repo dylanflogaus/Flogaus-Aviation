@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { readViteEnv } from "../config/env";
-import { INTRO_FLIGHT_CAL_PATH } from "../config/site";
+import type { BookingEventId } from "../config/booking";
+import {
+  FLIGHT_LESSON_CAL_PATH,
+  GROUND_LESSON_CAL_PATH,
+  INTRO_FLIGHT_CAL_PATH,
+} from "../config/site";
 
 function normalizeCalLink(raw: string): string {
   return raw.trim().replace(/^['"]+|['"]+$/g, "").trim();
@@ -28,19 +33,31 @@ function calDimensionHeight(payload: unknown): number | null {
   return Math.ceil(h);
 }
 
+function resolveCalLink(preset: BookingEventId): string {
+  switch (preset) {
+    case "intro-flight":
+      return normalizeCalLink(readViteEnv("VITE_CAL_INTRO_LINK") || INTRO_FLIGHT_CAL_PATH);
+    case "flight-lesson":
+      return normalizeCalLink(readViteEnv("VITE_CAL_FLIGHT_LINK") || FLIGHT_LESSON_CAL_PATH);
+    case "ground-lesson":
+      return normalizeCalLink(readViteEnv("VITE_CAL_GROUND_LINK") || GROUND_LESSON_CAL_PATH);
+  }
+}
+
 type CalEmbedProps = {
-  preset?: "intro-flight";
+  preset: BookingEventId;
 };
 
 export function CalEmbed({ preset }: CalEmbedProps) {
-  const defaultLink = normalizeCalLink(readViteEnv("VITE_CAL_LINK"));
-  const calLink =
-    preset === "intro-flight"
-      ? normalizeCalLink(readViteEnv("VITE_CAL_INTRO_LINK") || INTRO_FLIGHT_CAL_PATH)
-      : defaultLink;
+  const [embedReady, setEmbedReady] = useState(false);
+  const calLink = resolveCalLink(preset);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isNarrow, setIsNarrow] = useState(false);
   const [mobileHeightPx, setMobileHeightPx] = useState<number | null>(null);
+
+  useEffect(() => {
+    setEmbedReady(true);
+  }, []);
 
   useEffect(() => {
     const mql = window.matchMedia(MOBILE_MEDIA);
@@ -65,15 +82,15 @@ export function CalEmbed({ preset }: CalEmbedProps) {
 
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [isNarrow]);
+  }, [isNarrow, preset]);
 
   if (!calLink) {
     return (
       <div className="cal-placeholder card">
         <p>
-          Set <code>VITE_CAL_LINK</code> in a <code>.env</code> file (see <code>.env.example</code>). Use your
-          Cal.com path, for example <code>dflogaus/intro-flight</code> or a full{" "}
-          <code>https://cal.com/…</code> URL.
+          Cal.com paths are missing. Set <code>VITE_CAL_INTRO_LINK</code>, <code>VITE_CAL_FLIGHT_LINK</code>, and{" "}
+          <code>VITE_CAL_GROUND_LINK</code> in <code>.env</code> (see <code>.env.example</code>), or rely on the
+          defaults such as <code>dflogaus/intro-flight</code>.
         </p>
         <p style={{ marginTop: "1rem" }}>
           Scheduling only — no online payment on this site. Lesson fees are paid directly to your instructor after
@@ -83,11 +100,20 @@ export function CalEmbed({ preset }: CalEmbedProps) {
     );
   }
 
+  if (!embedReady) {
+    return (
+      <div className="cal-embed-wrap cal-embed-wrap--loading" aria-busy="true" aria-live="polite">
+        <p className="cal-embed-loading">Loading scheduler…</p>
+      </div>
+    );
+  }
+
   const src = buildEmbedUrl(calLink);
 
   return (
     <div className="cal-embed-wrap">
       <iframe
+        key={preset}
         ref={iframeRef}
         title="Schedule with Flogaus Aviation — Cal.com"
         src={src}
