@@ -5,20 +5,23 @@ export const SITE_PHONE = "+13023795071";
 export const SITE_PHONE_DISPLAY = "+1 (302) 379-5071";
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 
-export const HOME_AIRPORT_NAME = "New Garden Flying Field (N57)";
-export const HOME_AIRPORT_LOCALITY = "Toughkenamon, PA";
+/** Primary service area (no specific airport). */
+export const SERVICE_AREA_LABEL = "Wilmington, DE area";
 
-/** Body copy: Wilmington framing + home airport (mid-sentence). */
-export const SERVICE_AREA_PHRASE = `near ${HOME_AIRPORT_NAME}, serving the Wilmington, DE area`;
+/** JSON-LD and formal copy. */
+export const SERVICE_AREA_SURROUNDING = "Wilmington, DE and surrounding area";
+
+/** Body copy (mid-sentence). */
+export const SERVICE_AREA_PHRASE = `in the ${SERVICE_AREA_LABEL}`;
 
 /** Same as SERVICE_AREA_PHRASE, sentence-initial capitalization. */
-export const SERVICE_AREA_LINE = `Near ${HOME_AIRPORT_NAME}, serving the Wilmington, DE area`;
+export const SERVICE_AREA_LINE = `In the ${SERVICE_AREA_LABEL}`;
 
-/** SEO titles: airport first, then Wilmington (mid-title). */
-export const SEO_LOCATION_TITLE = `near ${HOME_AIRPORT_NAME} · Wilmington, DE`;
+/** SEO titles. */
+export const SEO_LOCATION_TITLE = SERVICE_AREA_LABEL;
 
-/** SEO meta descriptions: natural mid-sentence area phrasing. */
-export const SEO_LOCATION_DESCRIPTION = `near ${HOME_AIRPORT_NAME}, serving the Wilmington, DE area`;
+/** SEO meta descriptions (mid-sentence). */
+export const SEO_LOCATION_DESCRIPTION = `in the ${SERVICE_AREA_LABEL}`;
 
 export const INTRO_FLIGHT_CAL_PATH = "dflogaus/intro-flight";
 export const FLIGHT_LESSON_CAL_PATH = "dflogaus/flight-lesson";

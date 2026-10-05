@@ -17,7 +17,6 @@ const PRERENDER_ROUTES: { url: string; outFile: string }[] = [
   { url: "/about", outFile: "about.html" },
   { url: "/contact", outFile: "contact.html" },
   { url: "/booking", outFile: "booking.html" },
-  { url: "/flight-instruction-n57", outFile: "flight-instruction-n57.html" },
   { url: "/404", outFile: "404.html" },
 ];
 

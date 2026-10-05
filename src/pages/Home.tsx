@@ -56,9 +56,8 @@ export function Home() {
             <div className="trust-grid__copy">
               <p>
                 I am an FAA Certified Flight Instructor training {SERVICE_AREA_PHRASE}. I earned my certificates
-                through Part 141 training at flyGateway and Part 61
-                training at New Garden Flying Field, and I studied Mechanical Engineering at the University of
-                Delaware.
+                through Part 141 training at flyGateway and Part 61 training in the region, and I studied Mechanical
+                Engineering at the University of Delaware.
               </p>
               <p>
                 Expect calm, structured, one-on-one instruction with clear lesson plans and honest feedback. I hold
@@ -111,21 +110,6 @@ export function Home() {
             </Link>
             <Link to="/booking?event=flight-lesson" className="btn btn--ghost">
               Book a lesson
-            </Link>
-          </div>
-        </div>
-      </section>
-      <hr className="gold-rule" />
-      <section className="section section--tight" aria-labelledby="local-link-heading">
-        <div className="container content-measure">
-          <h2 id="local-link-heading">Also training near New Garden (N57)</h2>
-          <p>
-            If you fly near Toughkenamon or Kennett Square, see the dedicated page for flight instruction near New
-            Garden Flying Field (N57).
-          </p>
-          <div className="hero__actions">
-            <Link to="/flight-instruction-n57" className="btn btn--ghost">
-              Flight instruction near N57
             </Link>
           </div>
         </div>

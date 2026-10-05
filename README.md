@@ -1,6 +1,6 @@
 # Flogaus Aviation
 
-Marketing site for flight instruction at N57 (Princeton Airport, NJ). Built with React, Vite, and React Router.
+Marketing site for flight instruction in the Wilmington, DE area. Built with React, Vite, and React Router.
 
 ## Development
 

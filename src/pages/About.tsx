@@ -31,8 +31,8 @@ export function About() {
             <h2 className="section-heading-spaced">Background</h2>
             <p>
               I am a Certified Flight Instructor (CFI) with nearly 300 hours of flight time, plus Commercial and
-              Instrument pilot certificates and a First Class medical. I trained under Part 141 at flyGateway and
-              Part 61 at New Garden Flying Field, and I studied Mechanical Engineering at the University of Delaware.
+              Instrument pilot certificates and a First Class medical.               I trained under Part 141 at flyGateway and Part 61 in the region, and I studied Mechanical Engineering
+              at the University of Delaware.
             </p>
             <p>
               Training is one-on-one, paced to your goals, with a calm cockpit and a structured syllabus so you
