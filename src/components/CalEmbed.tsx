@@ -76,8 +76,8 @@ export function CalEmbed({ preset }: CalEmbedProps) {
           <code>https://cal.com/…</code> URL.
         </p>
         <p style={{ marginTop: "1rem" }}>
-          Connect Stripe in your Cal.com dashboard for paid event types; payments run through Cal, not on this
-          site.
+          Scheduling only — no online payment on this site. Lesson fees are paid directly to your instructor after
+          each session.
         </p>
       </div>
     );
@@ -91,7 +91,6 @@ export function CalEmbed({ preset }: CalEmbedProps) {
         ref={iframeRef}
         title="Schedule with Flogaus Aviation — Cal.com"
         src={src}
-        allow="payment *"
         scrolling={isNarrow ? "no" : undefined}
         style={isNarrow && mobileHeightPx != null ? { height: `${mobileHeightPx}px` } : undefined}
       />

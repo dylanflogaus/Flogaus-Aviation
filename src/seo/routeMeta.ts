@@ -41,7 +41,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   },
   "/booking": {
     title: `Book Flight Instruction ${SEO_LOCATION_TITLE} | ${SITE_NAME}`,
-    description: `Schedule a free Intro Flight or flight instruction ${SEO_LOCATION_DESCRIPTION} with ${SITE_NAME} using online booking.`,
+    description: `Schedule online at no cost — no card required. Intro Flight is free; instructor rates are paid after each lesson. ${SITE_NAME} ${SEO_LOCATION_DESCRIPTION}.`,
     path: "/booking",
     canonical: `${SITE_URL}/booking`,
     robots: "index,follow",

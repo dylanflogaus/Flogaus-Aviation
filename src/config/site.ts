@@ -24,3 +24,7 @@ export const INTRO_FLIGHT_CAL_PATH = "dflogaus/intro-flight";
 
 export const FLIGHT_DUAL_INSTRUCTION_RATE = "$70/hr";
 export const GROUND_INSTRUCTION_RATE = "$60/hr";
+
+/** User-facing payment and booking policy (no online checkout). */
+export const PAYMENT_POLICY =
+  `Online booking is free and no card is required. The Intro Flight is free. Flight (dual) instruction is ${FLIGHT_DUAL_INSTRUCTION_RATE} and ground instruction is ${GROUND_INSTRUCTION_RATE} (instructor rates), paid directly to Dylan after each lesson. Aircraft rental is billed separately.`;

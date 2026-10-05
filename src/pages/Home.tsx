@@ -4,6 +4,7 @@ import { INSTRUCTOR_CREDENTIALS } from "../config/credentials";
 import {
   FLIGHT_DUAL_INSTRUCTION_RATE,
   GROUND_INSTRUCTION_RATE,
+  PAYMENT_POLICY,
   SERVICE_AREA_PHRASE,
 } from "../config/site";
 
@@ -36,8 +37,8 @@ export function Home() {
             <article className="card">
               <h3>Respect for your schedule</h3>
               <p>
-                Book online, receive reminders, and reschedule when life happens. Paid sessions are handled securely
-                through Cal.com and Stripe.
+                Book online, receive reminders, and reschedule when life happens. Scheduling is free and no card is
+                required.
               </p>
             </article>
           </div>
@@ -86,9 +87,7 @@ export function Home() {
       <section className="section section--tight" aria-labelledby="pricing-heading">
         <div className="container content-measure">
           <h2 id="pricing-heading">Instructor rates</h2>
-          <p className="section__lede">
-            Instructor rates below. Aircraft rental is billed separately by the rental provider.
-          </p>
+          <p className="section__lede">{PAYMENT_POLICY}</p>
           <div className="pricing-table" role="table" aria-label="Instructor rates">
             <div className="pricing-table__row pricing-table__row--head" role="row">
               <span role="columnheader">Service</span>
