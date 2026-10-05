@@ -1,5 +1,6 @@
 import {
-  SEO_AREA_PHRASE,
+  SEO_LOCATION_DESCRIPTION,
+  SEO_LOCATION_TITLE,
   SITE_EMAIL,
   SITE_NAME,
   SITE_PHONE,
@@ -8,12 +9,10 @@ import {
 import type { RouteSeo } from "./types";
 import { normalizePathname } from "./normalizePath";
 
-const areaPhrase = SEO_AREA_PHRASE;
-
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
-    title: `Flight Instructor · ${areaPhrase} | ${SITE_NAME}`,
-    description: `FAA-certified flight instruction in the ${areaPhrase}. Private, recurrent, and checkride-ready training with a calm, structured CFI. Book a free Intro Flight.`,
+    title: `Flight Instructor ${SEO_LOCATION_TITLE} | ${SITE_NAME}`,
+    description: `FAA-certified flight instruction ${SEO_LOCATION_DESCRIPTION}. Private, recurrent, and checkride-ready training with a calm, structured CFI. Book a free Intro Flight.`,
     path: "/",
     canonical: SITE_URL,
     robots: "index,follow",
@@ -27,22 +26,22 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     robots: "index,follow",
   },
   "/about": {
-    title: `About ${SITE_NAME} | Flight Instructor · Wilmington, DE area`,
-    description: `Learn about ${SITE_NAME}'s calm, structured approach to flight training in the ${areaPhrase}.`,
+    title: `About ${SITE_NAME} | Flight Instructor ${SEO_LOCATION_TITLE}`,
+    description: `Learn about ${SITE_NAME}'s calm, structured approach to flight training ${SEO_LOCATION_DESCRIPTION}.`,
     path: "/about",
     canonical: `${SITE_URL}/about`,
     robots: "index,follow",
   },
   "/contact": {
-    title: `Contact a Flight Instructor · Wilmington, DE area | ${SITE_NAME}`,
-    description: `Contact ${SITE_NAME} for flight instruction in the ${areaPhrase}. Call ${SITE_PHONE} or email ${SITE_EMAIL}.`,
+    title: `Contact a Flight Instructor ${SEO_LOCATION_TITLE} | ${SITE_NAME}`,
+    description: `Contact ${SITE_NAME} for flight instruction ${SEO_LOCATION_DESCRIPTION}. Call ${SITE_PHONE} or email ${SITE_EMAIL}.`,
     path: "/contact",
     canonical: `${SITE_URL}/contact`,
     robots: "index,follow",
   },
   "/booking": {
-    title: `Book Flight Instruction · Wilmington, DE area | ${SITE_NAME}`,
-    description: `Schedule a free Intro Flight or flight instruction session with ${SITE_NAME} using online booking.`,
+    title: `Book Flight Instruction ${SEO_LOCATION_TITLE} | ${SITE_NAME}`,
+    description: `Schedule a free Intro Flight or flight instruction ${SEO_LOCATION_DESCRIPTION} with ${SITE_NAME} using online booking.`,
     path: "/booking",
     canonical: `${SITE_URL}/booking`,
     robots: "index,follow",

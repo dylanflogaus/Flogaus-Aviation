@@ -14,8 +14,11 @@ export const SERVICE_AREA_PHRASE = `near ${HOME_AIRPORT_NAME}, serving the Wilmi
 /** Same as SERVICE_AREA_PHRASE, sentence-initial capitalization. */
 export const SERVICE_AREA_LINE = `Near ${HOME_AIRPORT_NAME}, serving the Wilmington, DE area`;
 
-/** SEO titles/descriptions: Wilmington framing + home airport. */
-export const SEO_AREA_PHRASE = `Wilmington, DE area near ${HOME_AIRPORT_NAME}`;
+/** SEO titles: airport first, then Wilmington (mid-title). */
+export const SEO_LOCATION_TITLE = `near ${HOME_AIRPORT_NAME} · Wilmington, DE`;
+
+/** SEO meta descriptions: natural mid-sentence area phrasing. */
+export const SEO_LOCATION_DESCRIPTION = `near ${HOME_AIRPORT_NAME}, serving the Wilmington, DE area`;
 
 export const INTRO_FLIGHT_CAL_PATH = "dflogaus/intro-flight";
 
