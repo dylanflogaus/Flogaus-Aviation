@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useId, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { parseBookingEventId } from "../config/booking";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `header__link${isActive ? " header__link--active" : ""}`;
@@ -8,12 +9,16 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navId = useId();
   const location = useLocation();
+  const bookingEvent =
+    location.pathname === "/booking"
+      ? parseBookingEventId(new URLSearchParams(location.search).get("event"))
+      : null;
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
     closeMenu();
-  }, [location.pathname, closeMenu]);
+  }, [location.pathname, location.search, closeMenu]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -101,11 +106,21 @@ export function Header() {
             <li>
               <NavLink
                 to="/booking?event=intro-flight"
-                className={({ isActive }) =>
-                  `${navLinkClass({ isActive })} header__cta`.trim()
+                className={() =>
+                  `${navLinkClass({ isActive: bookingEvent === "intro-flight" })} header__cta`.trim()
                 }
               >
-                Book
+                Book a free Intro Flight
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/booking?event=flight-lesson"
+                className={() =>
+                  `${navLinkClass({ isActive: bookingEvent === "flight-lesson" })} header__link--secondary`.trim()
+                }
+              >
+                Book a lesson
               </NavLink>
             </li>
           </ul>

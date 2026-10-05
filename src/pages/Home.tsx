@@ -109,6 +109,9 @@ export function Home() {
             <Link to="/booking?event=intro-flight" className="btn btn--primary">
               Book a free Intro Flight
             </Link>
+            <Link to="/booking?event=flight-lesson" className="btn btn--ghost">
+              Book a lesson
+            </Link>
           </div>
         </div>
       </section>
