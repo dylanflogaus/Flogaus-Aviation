@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SERVICE_AREA_PHRASE } from "../config/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -6,28 +7,31 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer__grid">
         <div>
-          <p className="footer__title">Flogaus Aviation</p>
+          <h2 className="footer__title">Flogaus Aviation</h2>
           <p className="footer__text">
-            Structured, safety-first flight instruction for pilots who want clear standards and steady
-            progress.
+            Structured, safety-first flight instruction {SERVICE_AREA_PHRASE} for
+            pilots who want clear standards and steady progress.
           </p>
         </div>
         <div>
-          <p className="footer__title">Explore</p>
+          <h2 className="footer__title">Explore</h2>
           <ul className="footer__list">
             <li>
               <Link to="/about">About</Link>
             </li>
             <li>
+              <Link to="/flight-instruction-n57">Flight instruction near N57</Link>
+            </li>
+            <li>
               <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <Link to="/booking">Book a session</Link>
+              <Link to="/booking?event=intro-flight">Book a session</Link>
             </li>
           </ul>
         </div>
         <div>
-          <p className="footer__title">Contact</p>
+          <h2 className="footer__title">Contact</h2>
           <ul className="footer__list">
             <li>
               <a href="mailto:info@flogausaviation.com">info@flogausaviation.com</a>

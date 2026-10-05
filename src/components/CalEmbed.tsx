@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { readViteEnv } from "../config/env";
+import { INTRO_FLIGHT_CAL_PATH } from "../config/site";
 
 function normalizeCalLink(raw: string): string {
-  // Cloud providers sometimes store quoted env values; strip wrapper quotes safely.
   return raw.trim().replace(/^['"]+|['"]+$/g, "").trim();
 }
 
@@ -16,7 +17,6 @@ function buildEmbedUrl(calLink: string): string {
 
 const MOBILE_MEDIA = "(max-width: 767px)";
 
-/** Height Cal.com sends for the embedded document; keep in sync with their embed iframe messaging. */
 function calDimensionHeight(payload: unknown): number | null {
   if (typeof payload !== "object" || payload === null) return null;
   const o = payload as Record<string, unknown>;
@@ -28,8 +28,16 @@ function calDimensionHeight(payload: unknown): number | null {
   return Math.ceil(h);
 }
 
-export function CalEmbed() {
-  const calLink = normalizeCalLink(import.meta.env.VITE_CAL_LINK ?? "");
+type CalEmbedProps = {
+  preset?: "intro-flight";
+};
+
+export function CalEmbed({ preset }: CalEmbedProps) {
+  const defaultLink = normalizeCalLink(readViteEnv("VITE_CAL_LINK"));
+  const calLink =
+    preset === "intro-flight"
+      ? normalizeCalLink(readViteEnv("VITE_CAL_INTRO_LINK") || INTRO_FLIGHT_CAL_PATH)
+      : defaultLink;
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isNarrow, setIsNarrow] = useState(false);
   const [mobileHeightPx, setMobileHeightPx] = useState<number | null>(null);
@@ -52,7 +60,6 @@ export function CalEmbed() {
       if (event.source !== iframeRef.current?.contentWindow) return;
       const h = calDimensionHeight(event.data);
       if (h === null) return;
-      // Small buffer avoids 1px clipping from rounding/theme borders inside Cal.
       setMobileHeightPx(h + 2);
     };
 
@@ -64,13 +71,13 @@ export function CalEmbed() {
     return (
       <div className="cal-placeholder card">
         <p>
-          Set <code>VITE_CAL_LINK</code> in a <code>.env</code> file (see <code>.env.example</code>). Use
-          your Cal.com path, for example{" "}
-          <code>yourusername/discovery-call</code> or a full <code>https://cal.com/…</code> URL.
+          Set <code>VITE_CAL_LINK</code> in a <code>.env</code> file (see <code>.env.example</code>). Use your
+          Cal.com path, for example <code>dflogaus/intro-flight</code> or a full{" "}
+          <code>https://cal.com/…</code> URL.
         </p>
         <p style={{ marginTop: "1rem" }}>
-          Connect Stripe in your Cal.com dashboard for paid event types; payments run through Cal, not on this
-          site.
+          Scheduling only — no online payment on this site. Lesson fees are paid directly to your instructor after
+          each session.
         </p>
       </div>
     );
@@ -84,11 +91,8 @@ export function CalEmbed() {
         ref={iframeRef}
         title="Schedule with Flogaus Aviation — Cal.com"
         src={src}
-        allow="payment *"
         scrolling={isNarrow ? "no" : undefined}
-        style={
-          isNarrow && mobileHeightPx != null ? { height: `${mobileHeightPx}px` } : undefined
-        }
+        style={isNarrow && mobileHeightPx != null ? { height: `${mobileHeightPx}px` } : undefined}
       />
     </div>
   );
