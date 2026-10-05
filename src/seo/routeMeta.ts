@@ -1,5 +1,5 @@
 import {
-  HOME_AIRPORT_TBD,
+  SEO_AREA_PHRASE,
   SITE_EMAIL,
   SITE_NAME,
   SITE_PHONE,
@@ -8,7 +8,7 @@ import {
 import type { RouteSeo } from "./types";
 import { normalizePathname } from "./normalizePath";
 
-const areaPhrase = `Wilmington, DE area near ${HOME_AIRPORT_TBD}`;
+const areaPhrase = SEO_AREA_PHRASE;
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HOME_AIRPORT_TBD } from "../config/site";
+import { SERVICE_AREA_PHRASE } from "../config/site";
 
 const HERO_BULLETS = [
   "CFI, Commercial, and Instrument certificates, plus a First Class medical",
@@ -18,7 +18,7 @@ export function Hero() {
             toward
           </h1>
           <p className="hero__lede">
-            Private, recurrent, and checkride-ready training near {HOME_AIRPORT_TBD}. One-on-one coaching, clear
+            Private, recurrent, and checkride-ready training {SERVICE_AREA_PHRASE}. One-on-one coaching, clear
             lesson plans, and respect for your schedule.
           </p>
           <ul className="hero__bullets">

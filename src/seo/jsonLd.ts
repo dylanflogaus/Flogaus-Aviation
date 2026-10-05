@@ -1,5 +1,6 @@
 import {
-  HOME_AIRPORT_TBD,
+  HOME_AIRPORT_LOCALITY,
+  HOME_AIRPORT_NAME,
   SITE_EMAIL,
   SITE_NAME,
   SITE_PHONE,
@@ -19,10 +20,11 @@ export function buildLocalBusinessJsonLd() {
     url: SITE_URL,
     email: SITE_EMAIL,
     telephone: SITE_PHONE,
-    description: `Structured, safety-first flight instruction in the Wilmington, DE area near ${HOME_AIRPORT_TBD}.`,
+    description: `Structured, safety-first flight instruction near ${HOME_AIRPORT_NAME}, serving the Wilmington, DE area.`,
     areaServed: [
       { "@type": "AdministrativeArea", name: "Wilmington, DE area" },
-      { "@type": "Place", name: HOME_AIRPORT_TBD },
+      { "@type": "Place", name: HOME_AIRPORT_NAME },
+      { "@type": "Place", name: HOME_AIRPORT_LOCALITY },
     ],
   };
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { INSTRUCTOR_CREDENTIALS } from "../config/credentials";
-import { HOME_AIRPORT_TBD } from "../config/site";
+import { SERVICE_AREA_PHRASE } from "../config/site";
 
 export function About() {
   return (
@@ -9,7 +9,7 @@ export function About() {
         <div className="container">
           <h1 className="page-header__title">About Flogaus Aviation</h1>
           <p className="page-header__lede">
-            Calm, structured flight instruction in the Wilmington, DE area near {HOME_AIRPORT_TBD} — experience,
+            Calm, structured flight instruction {SERVICE_AREA_PHRASE} — experience,
             patience, and high standards without the ego.
           </p>
         </div>

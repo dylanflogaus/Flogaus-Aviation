@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HOME_AIRPORT_TBD, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY } from "../config/site";
+import { SERVICE_AREA_LINE, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY } from "../config/site";
 
 export function Contact() {
   return (
@@ -27,7 +27,7 @@ export function Contact() {
             <li>
               <strong>Service area</strong>
               <span style={{ color: "var(--color-muted)" }}>
-                Wilmington, DE area near {HOME_AIRPORT_TBD}
+                {SERVICE_AREA_LINE}
               </span>
             </li>
           </ul>

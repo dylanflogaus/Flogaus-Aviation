@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HOME_AIRPORT_TBD } from "../config/site";
+import { SERVICE_AREA_PHRASE } from "../config/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +9,7 @@ export function Footer() {
         <div>
           <h2 className="footer__title">Flogaus Aviation</h2>
           <p className="footer__text">
-            Structured, safety-first flight instruction in the Wilmington, DE area near {HOME_AIRPORT_TBD} for
+            Structured, safety-first flight instruction {SERVICE_AREA_PHRASE} for
             pilots who want clear standards and steady progress.
           </p>
         </div>

@@ -4,7 +4,7 @@ import { INSTRUCTOR_CREDENTIALS } from "../config/credentials";
 import {
   FLIGHT_LESSON_RATE_PLACEHOLDER,
   GROUND_LESSON_RATE_PLACEHOLDER,
-  HOME_AIRPORT_TBD,
+  SERVICE_AREA_PHRASE,
 } from "../config/site";
 
 export function Home() {
@@ -60,8 +60,8 @@ export function Home() {
             </figure>
             <div className="trust-grid__copy">
               <p>
-                I am an FAA Certified Flight Instructor based in the Wilmington, DE area, training near{" "}
-                {HOME_AIRPORT_TBD}. I earned my certificates through Part 141 training at flyGateway and Part 61
+                I am an FAA Certified Flight Instructor training {SERVICE_AREA_PHRASE}. I earned my certificates
+                through Part 141 training at flyGateway and Part 61
                 training at New Garden Flying Field, and I studied Mechanical Engineering at the University of
                 Delaware.
               </p>
