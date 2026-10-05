@@ -50,7 +50,7 @@ export function Home() {
           <div className="trust-grid">
             <figure className="about-photo trust-grid__photo">
               <img
-                src="/instructor-portrait.webp"
+                src="/instructor-portrait.jpeg"
                 alt="Flogaus Aviation flight instructor portrait"
                 width={560}
                 height={700}

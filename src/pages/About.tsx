@@ -54,7 +54,7 @@ export function About() {
           </div>
           <figure className="about-photo">
             <img
-              src="/instructor-portrait.webp"
+              src="/instructor-portrait.jpeg"
               alt="Flogaus Aviation flight instructor portrait"
               width={560}
               height={700}
