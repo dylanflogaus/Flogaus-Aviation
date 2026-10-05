@@ -14,8 +14,7 @@ export function Hero() {
         <div className="hero__content">
           <p className="hero__eyebrow">FAA Certified Flight Instructor · Wilmington, DE area</p>
           <h1 id="hero-heading" className="hero__title">
-            Learn to fly with a calm, structured CFI who just passed the same checkrides you&apos;re working
-            toward
+            Learn to fly with confidence
           </h1>
           <p className="hero__lede">
             Private, recurrent, and checkride-ready training {SERVICE_AREA_PHRASE}. One-on-one coaching, clear

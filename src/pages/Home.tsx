@@ -61,9 +61,8 @@ export function Home() {
                 Delaware.
               </p>
               <p>
-                I recently passed the same checkrides you are working toward, so the standards, ACS language, and
-                study habits are still fresh. I hold a First Class medical and train primarily in G1000-equipped
-                aircraft.
+                Expect calm, structured, one-on-one instruction with clear lesson plans and honest feedback. I hold
+                a First Class medical and train primarily in G1000-equipped aircraft.
               </p>
               <ul className="credential-list">
                 {INSTRUCTOR_CREDENTIALS.map(({ label, date }) => (

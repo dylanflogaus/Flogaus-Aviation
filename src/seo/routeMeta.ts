@@ -12,7 +12,7 @@ import { normalizePathname } from "./normalizePath";
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
     title: `Flight Instructor ${SEO_LOCATION_TITLE} | ${SITE_NAME}`,
-    description: `FAA-certified flight instruction ${SEO_LOCATION_DESCRIPTION}. Private, recurrent, and checkride-ready training with a calm, structured CFI. Book a free Intro Flight.`,
+    description: `FAA-certified flight instruction ${SEO_LOCATION_DESCRIPTION}. Calm, structured, one-on-one training with clear lesson plans. Book a free Intro Flight.`,
     path: "/",
     canonical: SITE_URL,
     robots: "index,follow",

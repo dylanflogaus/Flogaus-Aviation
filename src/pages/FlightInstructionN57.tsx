@@ -55,8 +55,8 @@ export function FlightInstructionN57() {
             <article className="card">
               <h3>Checkride preparation</h3>
               <p>
-                Polish maneuvers, oral topics, and decision-making with a CFI who recently passed the same practical
-                tests you are preparing for.
+                Polish maneuvers, oral topics, and decision-making with focused, safety-first coaching tailored to
+                your timeline.
               </p>
             </article>
             <article className="card">

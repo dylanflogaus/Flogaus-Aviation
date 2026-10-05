@@ -35,9 +35,8 @@ export function About() {
               Part 61 at New Garden Flying Field, and I studied Mechanical Engineering at the University of Delaware.
             </p>
             <p>
-              I may not have thousands of hours, but that is an advantage for you: I recently passed the same
-              checkrides you are preparing for. The knowledge is fresh, and I remember exactly what it is like to
-              learn these skills.
+              Training is one-on-one, paced to your goals, with a calm cockpit and a structured syllabus so you
+              always know what you are working on and why.
             </p>
             <p>
               My goal is simple: help you become a safe, confident, and competent pilot — whether you are working on
