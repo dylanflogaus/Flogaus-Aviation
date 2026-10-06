@@ -46,4 +46,4 @@ export function parseBookingEventId(raw: string | null): BookingEventId {
 }
 
 export const BOOKING_SCHEDULING_NOTE =
-  "Booking is free — no card needed. You pay after each lesson.";
+  "Booking is free — no card needed. You pay after each lesson. Fly in your own aircraft, or ask about a rental when one is available. Your airport is confirmed after booking.";

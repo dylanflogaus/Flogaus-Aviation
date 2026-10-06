@@ -12,14 +12,14 @@ import { normalizePathname } from "./normalizePath";
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
     title: `Flight Instructor · ${SEO_LOCATION_TITLE} | ${SITE_NAME}`,
-    description: `FAA-certified flight instruction ${SEO_LOCATION_DESCRIPTION}. Calm, structured, one-on-one training with clear lesson plans. Book a free Intro Flight.`,
+    description: `FAA-certified flight instruction ${SEO_LOCATION_DESCRIPTION}. Train in your own aircraft or explore a rental when available. Book a free Intro Flight — airport confirmed after scheduling.`,
     path: "/",
     canonical: SITE_URL,
     robots: "index,follow",
   },
   "/about": {
     title: `About ${SITE_NAME} | Flight Instructor · ${SEO_LOCATION_TITLE}`,
-    description: `Learn about ${SITE_NAME}'s calm, structured approach to flight training ${SEO_LOCATION_DESCRIPTION}.`,
+    description: `Learn about ${SITE_NAME}'s calm, structured approach to flight training ${SEO_LOCATION_DESCRIPTION}. Own aircraft welcome; rentals when available.`,
     path: "/about",
     canonical: `${SITE_URL}/about`,
     robots: "index,follow",
@@ -33,7 +33,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   },
   "/booking": {
     title: `Book Flight Instruction · ${SEO_LOCATION_TITLE} | ${SITE_NAME}`,
-    description: `Schedule online at no cost — no card required. Intro Flight is free; instructor rates are paid after each lesson. ${SITE_NAME} ${SEO_LOCATION_DESCRIPTION}.`,
+    description: `Schedule online at no cost — no card required. Intro Flight is free; instructor rates are paid after each lesson. Own aircraft or rental when available. ${SITE_NAME} ${SEO_LOCATION_DESCRIPTION}.`,
     path: "/booking",
     canonical: `${SITE_URL}/booking`,
     robots: "index,follow",

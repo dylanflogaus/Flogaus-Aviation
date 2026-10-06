@@ -17,6 +17,16 @@ export const SERVICE_AREA_PHRASE = `in the ${SERVICE_AREA_LABEL}`;
 /** Same as SERVICE_AREA_PHRASE, sentence-initial capitalization. */
 export const SERVICE_AREA_LINE = `In the ${SERVICE_AREA_LABEL}`;
 
+/** Aircraft options (no airport names). */
+export const AIRCRAFT_OPTIONS =
+  "You can train in your own aircraft, or we can look into a rental when one is available.";
+
+/** Where lessons happen; exact airport confirmed after booking. */
+export const LESSON_LOCATION_NOTE = `${SERVICE_AREA_LINE}. Your exact airport is confirmed after you book.`;
+
+/** Combined aircraft + location for body copy. */
+export const AIRCRAFT_AND_LOCATION = `${AIRCRAFT_OPTIONS} ${LESSON_LOCATION_NOTE}`;
+
 /** SEO titles. */
 export const SEO_LOCATION_TITLE = SERVICE_AREA_LABEL;
 
@@ -32,4 +42,4 @@ export const GROUND_INSTRUCTION_RATE = "$60/hr";
 
 /** User-facing payment and booking policy (no online checkout). */
 export const PAYMENT_POLICY =
-  `Online booking is free and no card is required. The Intro Flight is free. Flight (dual) instruction is ${FLIGHT_DUAL_INSTRUCTION_RATE} and ground instruction is ${GROUND_INSTRUCTION_RATE} (instructor rates), paid directly to Dylan after each lesson. Aircraft rental is billed separately.`;
+  `Online booking is free and no card is required. The Intro Flight is free. Flight (dual) instruction is ${FLIGHT_DUAL_INSTRUCTION_RATE} and ground instruction is ${GROUND_INSTRUCTION_RATE} (instructor rates), paid directly to Dylan after each lesson. ${AIRCRAFT_OPTIONS} Aircraft rental, when used, is billed separately from instructor rates.`;

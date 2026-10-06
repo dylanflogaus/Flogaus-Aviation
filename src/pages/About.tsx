@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { InstructorPortrait } from "../components/InstructorPortrait";
 import { INSTRUCTOR_CREDENTIALS } from "../config/credentials";
-import { SERVICE_AREA_PHRASE } from "../config/site";
+import { AIRCRAFT_AND_LOCATION, SERVICE_AREA_PHRASE } from "../config/site";
 
 export function About() {
   return (
@@ -38,6 +38,7 @@ export function About() {
               Training is one-on-one, paced to your goals, with a calm cockpit and a structured syllabus so you
               always know what you are working on and why.
             </p>
+            <p>{AIRCRAFT_AND_LOCATION}</p>
             <p>
               My goal is simple: help you become a safe, confident, and competent pilot — whether you are working on
               your private certificate, returning after time away, or polishing maneuvers before a practical test.
