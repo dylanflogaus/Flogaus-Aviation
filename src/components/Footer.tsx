@@ -20,9 +20,6 @@ export function Footer() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/flight-instruction-n57">Flight instruction near N57</Link>
-            </li>
-            <li>
               <Link to="/contact">Contact</Link>
             </li>
             <li>

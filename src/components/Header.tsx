@@ -94,11 +94,6 @@ export function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/flight-instruction-n57" className={navLinkClass}>
-                Flight instruction
-              </NavLink>
-            </li>
-            <li>
               <NavLink to="/contact" className={navLinkClass}>
                 Contact
               </NavLink>
