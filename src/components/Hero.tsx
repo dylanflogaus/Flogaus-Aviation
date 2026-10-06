@@ -17,7 +17,8 @@ export function Hero() {
             Learn to fly with confidence
           </h1>
           <p className="hero__lede">
-            Private, recurrent, and checkride-ready training {SERVICE_AREA_PHRASE}. One-on-one coaching, clear
+            Private, recurrent, and checkride-ready training {SERVICE_AREA_PHRASE}. Train in your own aircraft or ask
+            about a rental when one is available — your airport is confirmed after booking. One-on-one coaching, clear
             lesson plans, and respect for your schedule.
           </p>
           <ul className="hero__bullets">

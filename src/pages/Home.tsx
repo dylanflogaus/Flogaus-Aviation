@@ -3,6 +3,7 @@ import { Hero } from "../components/Hero";
 import { InstructorPortrait } from "../components/InstructorPortrait";
 import { INSTRUCTOR_CREDENTIALS } from "../config/credentials";
 import {
+  AIRCRAFT_AND_LOCATION,
   FLIGHT_DUAL_INSTRUCTION_RATE,
   GROUND_INSTRUCTION_RATE,
   PAYMENT_POLICY,
@@ -61,7 +62,7 @@ export function Home() {
               </p>
               <p>
                 Expect calm, structured, one-on-one instruction with clear lesson plans and honest feedback. I hold
-                a First Class medical and train primarily in G1000-equipped aircraft.
+                a First Class medical and am comfortable in G1000-equipped aircraft. {AIRCRAFT_AND_LOCATION}
               </p>
               <ul className="credential-list">
                 {INSTRUCTOR_CREDENTIALS.map(({ label, date }) => (
@@ -73,6 +74,32 @@ export function Home() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+      <hr className="gold-rule" />
+      <section className="section section--tight" aria-labelledby="faq-heading">
+        <div className="container content-measure">
+          <h2 id="faq-heading">Common questions</h2>
+          <dl className="faq-list">
+            <div>
+              <dt>Where do lessons happen?</dt>
+              <dd>
+                Training is {SERVICE_AREA_PHRASE}. Your exact airport is confirmed after you book so we can match
+                your aircraft and schedule.
+              </dd>
+            </div>
+            <div>
+              <dt>Do I need to rent an airplane?</dt>
+              <dd>
+                Many students train in an aircraft they own or have access to. When a suitable rental is available, we
+                can look into that together. Instructor rates are separate from any aircraft rental.
+              </dd>
+            </div>
+            <div>
+              <dt>How does booking and payment work?</dt>
+              <dd>{PAYMENT_POLICY}</dd>
+            </div>
+          </dl>
         </div>
       </section>
       <hr className="gold-rule" />

@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
-import { SERVICE_AREA_LINE, SITE_EMAIL, SITE_PHONE, SITE_PHONE_DISPLAY } from "../config/site";
+import {
+  AIRCRAFT_OPTIONS,
+  SERVICE_AREA_LINE,
+  SITE_EMAIL,
+  SITE_PHONE,
+  SITE_PHONE_DISPLAY,
+} from "../config/site";
 
 export function Contact() {
   return (
@@ -27,8 +33,12 @@ export function Contact() {
             <li>
               <strong>Service area</strong>
               <span style={{ color: "var(--color-muted)" }}>
-                {SERVICE_AREA_LINE}
+                {SERVICE_AREA_LINE}. Your exact airport is confirmed after you book.
               </span>
+            </li>
+            <li>
+              <strong>Aircraft</strong>
+              <span style={{ color: "var(--color-muted)" }}>{AIRCRAFT_OPTIONS}</span>
             </li>
           </ul>
           <p className="contact__next-step">

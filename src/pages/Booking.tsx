@@ -2,13 +2,14 @@ import { Link, useSearchParams } from "react-router-dom";
 import { CalEmbed } from "../components/CalEmbed";
 import { LessonPicker } from "../components/LessonPicker";
 import { parseBookingEventId } from "../config/booking";
+import { LESSON_LOCATION_NOTE } from "../config/site";
 
 const EVENT_LEDE: Record<
   ReturnType<typeof parseBookingEventId>,
   string
 > = {
   "intro-flight": "Pick a time for your free Intro Flight.",
-  "flight-lesson": "Pick a time for dual flight instruction in the aircraft.",
+  "flight-lesson": "Pick a time for dual flight instruction.",
   "ground-lesson": "Pick a time for ground instruction — briefings, test prep, or knowledge review.",
 };
 
@@ -22,6 +23,9 @@ export function Booking() {
         <div className="container">
           <h1 className="page-header__title">Book instruction</h1>
           <p className="page-header__lede">{EVENT_LEDE[event]}</p>
+          <p className="page-header__lede" style={{ marginTop: "1rem" }}>
+            {LESSON_LOCATION_NOTE}
+          </p>
           {event !== "intro-flight" ? (
             <p className="page-header__lede" style={{ marginTop: "1rem" }}>
               New here?{" "}

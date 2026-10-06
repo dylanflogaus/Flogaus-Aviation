@@ -19,7 +19,7 @@ export function buildLocalBusinessJsonLd() {
     url: SITE_URL,
     email: SITE_EMAIL,
     telephone: SITE_PHONE,
-    description: `Structured, safety-first flight instruction in the ${SERVICE_AREA_SURROUNDING}.`,
+    description: `Structured, safety-first flight instruction in the ${SERVICE_AREA_SURROUNDING}. Students may use their own aircraft or a rental when available; airport confirmed after booking.`,
     areaServed: [{ "@type": "AdministrativeArea", name: SERVICE_AREA_SURROUNDING }],
   };
 }
